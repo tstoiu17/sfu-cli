@@ -23,6 +23,14 @@ base_url = f'http://www.sfu.ca/bin/wcm/course-outlines?'
 req_url = base_url
 params = []
 level = 0
+"""Levels
+0: base
+1: year
+2: term
+3: dept
+4: course
+5: sect (we'll stop at the course section details)
+"""
 quit = False
 while level < 5 and not quit:
     os.system('clear')
@@ -61,3 +69,11 @@ while level < 5 and not quit:
         else:
             print('Invalid choice entered')
 
+
+os.system('clear')
+query = "/".join(params)
+req_url = f'{base_url}{query}'
+r = requests.get(req_url)
+print(f'{level}: Requesting /{query}')
+j = json.loads(r.text)
+print(json.dumps(j, indent=4))
