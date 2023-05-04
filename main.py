@@ -34,11 +34,15 @@ level = 0
 quit = False
 while level < 5 and not quit:
     os.system('clear')
+
+    # create request
     query = "/".join(params)
     req_url = f'{base_url}{query}'
     r = requests.get(req_url)
     print(f'{level}: Requesting /{query}')
-    j = json.loads(r.text)
+
+    # get json of response
+    j = r.json()
     # display options
     options = {str(i): obj['text'] for i, obj in enumerate(j)}
     # TODO: include these options for choosing year and term

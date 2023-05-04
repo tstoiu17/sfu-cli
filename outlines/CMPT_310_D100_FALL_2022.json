@@ -1,0 +1,80 @@
+{
+  "info": {
+    "notes": "",
+    "deliveryMethod": "In Person",
+    "description": "A survey of modern approaches for artificial intelligence (AI). Provides an introduction to a variety of AI topics and prepares students for upper-level courses. Topics include: problem solving with search; adversarial game playing; probability and Bayesian networks; machine learning; and applications such as robotics, visual computing and natural language.",
+    "section": "D100",
+    "units": "3",
+    "title": "Introduction to Artificial Intelligence",
+    "type": "e",
+    "classNumber": "5238",
+    "departmentalUgradNotes": "",
+    "prerequisites": "CMPT 225 and (MACM 101 or (ENSC 251 and ENSC 252)), all with a minimum grade of C-.",
+    "number": "310",
+    "requiredReadingNotes": "Your personalized Course Material list, including digital and physical textbooks, are available through the SFU Bookstore website by simply entering your Computing ID at: <a href=\"https://shop.sfu.ca/course-materials/my-personalized-course-materials\">shop.sfu.ca/course-materials/my-personalized-course-materials</a>.",
+    "registrarNotes": "<p><strong>ACADEMIC INTEGRITY: YOUR WORK, YOUR SUCCESS</strong></p>\r\n<p>SFU&rsquo;s Academic Integrity website <a href=\"http://www.sfu.ca/students/academicintegrity.html\">http://www.sfu.ca/students/academicintegrity.html</a> is filled with information on what is meant by academic dishonesty, where you can find resources to help with your studies and the consequences of cheating. Check out the site for more information and videos that help explain the issues in plain English.</p>\r\n<p>Each student is responsible for his or her conduct as it affects the university community. Academic dishonesty, in whatever form, is ultimately destructive of the values of the university. Furthermore, it is unfair and discouraging to the majority of students who pursue their studies honestly. Scholarly integrity is required of all members of the university. <a href=\"http://www.sfu.ca/policies/gazette/student/s10-01.html\">http://www.sfu.ca/policies/gazette/student/s10-01.html</a></p>",
+    "outlinePath": "2022/fall/cmpt/310/d100",
+    "term": "Fall 2022",
+    "gradingNotes": "Grading will be announced the first week of class.",
+    "corequisites": "",
+    "dept": "CMPT",
+    "degreeLevel": "UGRD",
+    "specialTopic": "",
+    "courseDetails": "This course is a broad introduction to the techniques, methodology, and theory of Artificial Intelligence. Depending on time and class interest, the following topics will be discussed.<br />\r\n<h2 class=\"ParagraphTitle\">Topics</h2>\r\n<ul>\r\n<li>Meaning, goals, methods and languages of Artificial Intelligence.</li>\r\n<li>Knowledge representation.</li>\r\n<li>Inference in first order logic; logic programming.</li>\r\n<li>Intelligent searching and planning.</li>\r\n<li>Natural Language Understanding.</li>\r\n<li>Game-playing.</li>\r\n<li>Machine learning (e.g. neural networks, decision trees).</li>\r\n</ul>",
+    "name": "CMPT 310 D100",
+    "designation": "N/A"
+  },
+  "instructor": [
+    {
+      "profileUrl": "",
+      "commonName": "Hazra",
+      "firstName": "Hazra",
+      "lastName": "Imran",
+      "phone": "",
+      "roleCode": "PI",
+      "name": "Hazra Imran",
+      "officeHours": "",
+      "office": "",
+      "email": "himran@sfu.ca"
+    }
+  ],
+  "courseSchedule": [
+    {
+      "roomNumber": "3181",
+      "endDate": "Tue Dec 06 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "AQ",
+      "days": "Mo",
+      "sectionCode": "LEC",
+      "startTime": "10:30",
+      "isExam": false,
+      "endTime": "11:20",
+      "startDate": "Wed Sep 07 00:00:00 PDT 2022"
+    },
+    {
+      "roomNumber": "10081",
+      "endDate": "Tue Dec 06 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "SWH",
+      "days": "Th",
+      "sectionCode": "LEC",
+      "startTime": "10:30",
+      "isExam": false,
+      "endTime": "12:20",
+      "startDate": "Wed Sep 07 00:00:00 PDT 2022"
+    }
+  ],
+  "examSchedule": [
+    {
+      "roomNumber": "10081",
+      "endDate": "Sat Dec 10 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "SWH",
+      "days": "Sa",
+      "startTime": "12:00",
+      "isExam": true,
+      "endTime": "15:00",
+      "startDate": "Sat Dec 10 00:00:00 PST 2022"
+    }
+  ]
+}

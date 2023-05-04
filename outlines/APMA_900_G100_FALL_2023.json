@@ -1,0 +1,36 @@
+{
+  "info": {
+    "notes": "",
+    "deliveryMethod": "In Person",
+    "corequisites": "",
+    "description": "",
+    "section": "G100",
+    "graduateStudiesNotes": "Important dates and deadlines for graduate students are found here:&nbsp;<a href=\"http://www.sfu.ca/dean-gradstudies/current/important_dates/guidelines.html\">http://www.sfu.ca/dean-gradstudies/current/important_dates/guidelines.html</a>. The deadline to drop a course with a 100% refund is the end of week 2. The deadline to drop with no notation on your transcript is the end of week 3.",
+    "dept": "APMA",
+    "title": "Asymptotic Analysis of Differential Equations",
+    "type": "e",
+    "classNumber": "2201",
+    "prerequisites": "",
+    "number": "900",
+    "requiredReadingNotes": "Your personalized Course Material list, including digital and physical textbooks, are available through the SFU Bookstore website by simply entering your Computing ID at: <a href=\"https://shop.sfu.ca/course-materials/my-personalized-course-materials\">shop.sfu.ca/course-materials/my-personalized-course-materials</a>.",
+    "registrarNotes": "<p><strong>ACADEMIC INTEGRITY: YOUR WORK, YOUR SUCCESS</strong></p>\r\n<p>SFU&rsquo;s Academic Integrity website <a href=\"http://www.sfu.ca/students/academicintegrity.html\">http://www.sfu.ca/students/academicintegrity.html</a> is filled with information on what is meant by academic dishonesty, where you can find resources to help with your studies and the consequences of cheating. Check out the site for more information and videos that help explain the issues in plain English.</p>\r\n<p>Each student is responsible for his or her conduct as it affects the university community. Academic dishonesty, in whatever form, is ultimately destructive of the values of the university. Furthermore, it is unfair and discouraging to the majority of students who pursue their studies honestly. Scholarly integrity is required of all members of the university. <a href=\"http://www.sfu.ca/policies/gazette/student/s10-01.html\">http://www.sfu.ca/policies/gazette/student/s10-01.html</a></p>",
+    "degreeLevel": "",
+    "departmentalGradNotes": "",
+    "outlinePath": "2023/fall/apma/900/g100",
+    "specialTopic": "",
+    "name": "APMA 900 G100",
+    "term": "Fall 2023",
+    "designation": ""
+  },
+  "courseSchedule": [
+    {
+      "endDate": "Tue Dec 05 00:00:00 PST 2023",
+      "days": "We, Fr",
+      "sectionCode": "LEC",
+      "startTime": "14:30",
+      "isExam": false,
+      "endTime": "16:20",
+      "startDate": "Wed Sep 06 00:00:00 PDT 2023"
+    }
+  ]
+}

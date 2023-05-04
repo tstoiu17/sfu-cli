@@ -1,0 +1,80 @@
+{
+  "info": {
+    "notes": "",
+    "deliveryMethod": "In Person",
+    "description": "Basic concepts and programming tools for handling and processing data. Includes data acquisition, cleaning data sources, application of machine learning techniques and data analysis techniques, large-scale computation on a computing cluster.",
+    "section": "D100",
+    "units": "3",
+    "title": "Computational Data Science",
+    "type": "e",
+    "classNumber": "5241",
+    "departmentalUgradNotes": "",
+    "prerequisites": "CMPT 225 and (STAT 101, STAT 270, ENSC 280, or MSE 210), with a minimum grade of C-.",
+    "number": "353",
+    "requiredReadingNotes": "Your personalized Course Material list, including digital and physical textbooks, are available through the SFU Bookstore website by simply entering your Computing ID at: <a href=\"https://shop.sfu.ca/course-materials/my-personalized-course-materials\">shop.sfu.ca/course-materials/my-personalized-course-materials</a>.",
+    "registrarNotes": "<p><strong>ACADEMIC INTEGRITY: YOUR WORK, YOUR SUCCESS</strong></p>\r\n<p>SFU&rsquo;s Academic Integrity website <a href=\"http://www.sfu.ca/students/academicintegrity.html\">http://www.sfu.ca/students/academicintegrity.html</a> is filled with information on what is meant by academic dishonesty, where you can find resources to help with your studies and the consequences of cheating. Check out the site for more information and videos that help explain the issues in plain English.</p>\r\n<p>Each student is responsible for his or her conduct as it affects the university community. Academic dishonesty, in whatever form, is ultimately destructive of the values of the university. Furthermore, it is unfair and discouraging to the majority of students who pursue their studies honestly. Scholarly integrity is required of all members of the university. <a href=\"http://www.sfu.ca/policies/gazette/student/s10-01.html\">http://www.sfu.ca/policies/gazette/student/s10-01.html</a></p>",
+    "outlinePath": "2022/fall/cmpt/353/d100",
+    "term": "Fall 2022",
+    "gradingNotes": "<p>Will include weekly exercises, quizzes (in lecture time), and a project. Details will be discussed in the first week of class.</p>\r\n<p>Students must attain an overall passing grade on the weighted average of exams in the course in order to obtain a clear pass (C- or better).</p>",
+    "corequisites": "",
+    "dept": "CMPT",
+    "degreeLevel": "UGRD",
+    "specialTopic": "",
+    "courseDetails": "<p>This course will be an introduction to the tools and techniques in data science. We will explore common challenges and solutions used in analysis of data. Online offering notes: you will need a computer with a webcam and reliable Internet access. The computer should be powerful enough to run a virtual machine: at least 8 GB memory, 20 GB disk, and a reasonably decent processor. There will be 4 quizzes during the semester which must be completed during the lecture time. Otherwise, lectures will be posted as a \"watch party\" where we can watch together (and ask questions in a forum), but they can also be viewed later.</p>\r\n<p>&nbsp;</p>\r\n<h2 class=\"ParagraphTitle\">Topics</h2>\r\n<ul>\r\n<li>Basics of data science: concepts, goals, motivation, expectations.</li>\r\n<li>Introduction to selected data processing tools: Python with numpy and pandas.</li>\r\n<li>Working with data. Cleaning data; extract, transform, load tasks; applying concepts from statistics.</li>\r\n<li>Machine learning basics with existing implementations (such as scikit-learn).</li>\r\n<li>Data analysis strategies: selecting techniques from statistics and machine learning.</li>\r\n<li>Big data tools.</li>\r\n<li>Data visualization and summarizing results.</li>\r\n</ul>",
+    "name": "CMPT 353 D100",
+    "designation": "N/A"
+  },
+  "instructor": [
+    {
+      "profileUrl": "",
+      "commonName": "Gregory",
+      "firstName": "Gregory Garnet",
+      "lastName": "Baker",
+      "phone": "1 778 782-5755",
+      "roleCode": "PI",
+      "name": "Gregory Baker",
+      "officeHours": "",
+      "office": "",
+      "email": "ggbaker@sfu.ca"
+    }
+  ],
+  "courseSchedule": [
+    {
+      "roomNumber": "7618",
+      "endDate": "Tue Dec 06 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "EDB",
+      "days": "Tu",
+      "sectionCode": "LEC",
+      "startTime": "8:30",
+      "isExam": false,
+      "endTime": "10:20",
+      "startDate": "Wed Sep 07 00:00:00 PDT 2022"
+    },
+    {
+      "roomNumber": "3181",
+      "endDate": "Tue Dec 06 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "AQ",
+      "days": "Fr",
+      "sectionCode": "LEC",
+      "startTime": "8:30",
+      "isExam": false,
+      "endTime": "9:20",
+      "startDate": "Wed Sep 07 00:00:00 PDT 2022"
+    }
+  ],
+  "examSchedule": [
+    {
+      "roomNumber": "10081",
+      "endDate": "Wed Dec 14 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "SWH",
+      "days": "We",
+      "startTime": "12:00",
+      "isExam": true,
+      "endTime": "15:00",
+      "startDate": "Wed Dec 14 00:00:00 PST 2022"
+    }
+  ]
+}

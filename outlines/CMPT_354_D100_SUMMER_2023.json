@@ -1,0 +1,49 @@
+{
+  "info": {
+    "notes": "",
+    "deliveryMethod": "In Person",
+    "corequisites": "",
+    "description": "",
+    "section": "D100",
+    "dept": "CMPT",
+    "title": "Database Systems I",
+    "type": "e",
+    "classNumber": "4001",
+    "departmentalUgradNotes": "",
+    "prerequisites": "",
+    "number": "354",
+    "requiredReadingNotes": "",
+    "registrarNotes": "<p><strong>ACADEMIC INTEGRITY: YOUR WORK, YOUR SUCCESS</strong></p>\r\n<p>SFU&rsquo;s Academic Integrity website <a href=\"http://www.sfu.ca/students/academicintegrity.html\">http://www.sfu.ca/students/academicintegrity.html</a> is filled with information on what is meant by academic dishonesty, where you can find resources to help with your studies and the consequences of cheating. Check out the site for more information and videos that help explain the issues in plain English.</p>\r\n<p>Each student is responsible for his or her conduct as it affects the university community. Academic dishonesty, in whatever form, is ultimately destructive of the values of the university. Furthermore, it is unfair and discouraging to the majority of students who pursue their studies honestly. Scholarly integrity is required of all members of the university. <a href=\"http://www.sfu.ca/policies/gazette/student/s10-01.html\">http://www.sfu.ca/policies/gazette/student/s10-01.html</a></p>",
+    "degreeLevel": "",
+    "outlinePath": "2023/summer/cmpt/354/d100",
+    "specialTopic": "",
+    "name": "CMPT 354 D100",
+    "term": "Summer 2023",
+    "designation": ""
+  },
+  "instructor": [
+    {
+      "profileUrl": "",
+      "commonName": "Evgenia",
+      "firstName": "Evgenia",
+      "lastName": "Ternovska",
+      "phone": "",
+      "roleCode": "PI",
+      "name": "Evgenia Ternovska",
+      "officeHours": "",
+      "office": "",
+      "email": ""
+    }
+  ],
+  "courseSchedule": [
+    {
+      "endDate": "Fri Aug 04 00:00:00 PDT 2023",
+      "days": "Tu",
+      "sectionCode": "LEC",
+      "startTime": "14:30",
+      "isExam": false,
+      "endTime": "17:20",
+      "startDate": "Mon May 08 00:00:00 PDT 2023"
+    }
+  ]
+}

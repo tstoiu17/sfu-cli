@@ -1,0 +1,110 @@
+{
+  "info": {
+    "notes": "",
+    "deliveryMethod": "In Person",
+    "description": "General overview of universally useful concepts in insurance, pensions and financial management. Typical life, health and property & casualty insurance products; underwriting; pricing; reserving; regulation; social insurance; retirement plans and annuities; financial planning: mortgages, loans, wealth management.",
+    "section": "E100",
+    "units": "3",
+    "title": "Introduction to Insurance",
+    "type": "e",
+    "classNumber": "4618",
+    "departmentalUgradNotes": "<strong> Students with Disabilities:<br /></strong>Students requiring accommodations as a result of disability must contact the Centre for Accessible Learning 778-782-3112 or <a href=\"mailto:caladmin@sfu.ca\">caladmin@sfu.ca</a>.<br /><strong><br /><br />Tutor Requests:<br /></strong>Students looking for a tutor should visit <a href=\"https://www.sfu.ca/stat-actsci/all-students/other-resources/tutoring.html\">https://www.sfu.ca/stat-actsci/all-students/other-resources/tutoring.html</a>. We accept no responsibility for the consequences of any actions taken related to tutors.",
+    "prerequisites": "",
+    "number": "101",
+    "requiredReadingNotes": "Your personalized Course Material list, including digital and physical textbooks, are available through the SFU Bookstore website by simply entering your Computing ID at: <a href=\"https://shop.sfu.ca/course-materials/my-personalized-course-materials\">shop.sfu.ca/course-materials/my-personalized-course-materials</a>.",
+    "registrarNotes": "<p><strong>ACADEMIC INTEGRITY: YOUR WORK, YOUR SUCCESS</strong></p>\r\n<p>SFU&rsquo;s Academic Integrity website <a href=\"http://www.sfu.ca/students/academicintegrity.html\">http://www.sfu.ca/students/academicintegrity.html</a> is filled with information on what is meant by academic dishonesty, where you can find resources to help with your studies and the consequences of cheating. Check out the site for more information and videos that help explain the issues in plain English.</p>\r\n<p>Each student is responsible for his or her conduct as it affects the university community. Academic dishonesty, in whatever form, is ultimately destructive of the values of the university. Furthermore, it is unfair and discouraging to the majority of students who pursue their studies honestly. Scholarly integrity is required of all members of the university. <a href=\"http://www.sfu.ca/policies/gazette/student/s10-01.html\">http://www.sfu.ca/policies/gazette/student/s10-01.html</a></p>",
+    "outlinePath": "2022/fall/acma/101/e100",
+    "term": "Fall 2022",
+    "gradingNotes": "<em><strong>All above grading is subject to change</strong></em>",
+    "corequisites": "MATH 150, 151, 154 or 157.",
+    "dept": "ACMA",
+    "degreeLevel": "UGRD",
+    "specialTopic": "",
+    "courseDetails": "<p>This course is an introduction to insurance products and financial planning. The topics covered include</p>\r\n<p><strong>Introduction</strong>: insurance, interest rates, valuing cash flows, determinants of interest rates</p>\r\n<p><strong>Life Insurance</strong>: actuarial fundamentals, mortality tables, pricing, premium calculations for life insurance products (term, whole-life, endowment, life annuities), universal life insurance, underwriting</p>\r\n<p><strong>Health insurance</strong>: individual versus group coverage, health benefits in Canada, private medical plans, coverage modifications (deductible, coinsurance, policy limit), pricing</p>\r\n<p><strong>Retirement income arrangement</strong>: government-administered pension programs, employer-sponsored retirement income plans (defined contribution, defined benefit, combinations), principal provisions</p>\r\n<p><strong>Property &amp; Casualty insurance</strong>: frequency and severity, car insurance (coverage, risk classification, experience ratings), home insurance (coverage, types of policies), workers' compensation</p>\r\n<p><strong>Personal financial planning</strong>: personal loans, mortgages, role of insurance in personal financial planning</p>\r\nThe topics covered by this course are subject to some adjustments",
+    "name": "ACMA 101 E100",
+    "designation": "Quantitative/Breadth-Science"
+  },
+  "instructor": [
+    {
+      "profileUrl": "https://www.sfu.ca/stat-actsci/department/profiles/yilu.html",
+      "commonName": "Yi",
+      "firstName": "Yi",
+      "lastName": "Lu",
+      "phone": "1 778 782-7231",
+      "roleCode": "PI",
+      "name": "Yi Lu",
+      "officeHours": "",
+      "office": "",
+      "email": "yilu@sfu.ca"
+    }
+  ],
+  "courseSchedule": [
+    {
+      "roomNumber": "3260",
+      "endDate": "Tue Dec 06 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "WMC",
+      "days": "Mo",
+      "sectionCode": "LEC",
+      "startTime": "16:30",
+      "isExam": false,
+      "endTime": "18:20",
+      "startDate": "Wed Sep 07 00:00:00 PDT 2022"
+    },
+    {
+      "roomNumber": "3181",
+      "endDate": "Tue Dec 06 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "AQ",
+      "days": "We",
+      "sectionCode": "LEC",
+      "startTime": "16:30",
+      "isExam": false,
+      "endTime": "17:20",
+      "startDate": "Wed Sep 07 00:00:00 PDT 2022"
+    }
+  ],
+  "examSchedule": [
+    {
+      "roomNumber": "3182",
+      "endDate": "Mon Oct 24 00:00:00 PDT 2022",
+      "campus": "Burnaby",
+      "buildingCode": "AQ",
+      "days": "Mo",
+      "startTime": "19:00",
+      "isExam": true,
+      "endTime": "21:00",
+      "startDate": "Mon Oct 24 00:00:00 PDT 2022"
+    },
+    {
+      "roomNumber": "3003",
+      "endDate": "Sat Dec 17 00:00:00 PST 2022",
+      "campus": "Burnaby",
+      "buildingCode": "AQ",
+      "days": "Sa",
+      "startTime": "19:00",
+      "isExam": true,
+      "endTime": "22:00",
+      "startDate": "Sat Dec 17 00:00:00 PST 2022"
+    }
+  ],
+  "grades": [
+    {
+      "description": "Assignments",
+      "weight": "20"
+    },
+    {
+      "description": "Midterm",
+      "weight": "30"
+    },
+    {
+      "description": "Final Exam",
+      "weight": "50"
+    }
+  ],
+  "recommendedText": [
+    {
+      "details": "<ul>\r\n<li><em>Life Insurance </em>by K. Black and H. Skipper, Prentice-Hall</li>\r\n<li><em>Morneau Shepell Handbook of Canadian Pension and Benefit Plans</em> by Morneau Shepell.</li>\r\n<li><em>Group </em><em>Insurance</em> by W.F. Bluhm, ACTEX Publications&nbsp; &nbsp; &nbsp; &nbsp;</li>\r\n<li><em>Insurance Operations</em> Edited by Susan Kearney, The Institutes&nbsp; &nbsp; &nbsp; &nbsp;</li>\r\n<li><em>Survey of Personal Insurance and Financial Planning</em>, Edited by Mary Ann Cook, The Institutes&nbsp; &nbsp; &nbsp; &nbsp;</li>\r\n<li><em>Survey of Commercial Insurance</em>, Edited by Arthur Flitner, The Institutes</li>\r\n</ul>"
+    }
+  ]
+}
