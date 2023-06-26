@@ -1,0 +1,74 @@
+#!/bin/sh
+#
+# A CLI for SFU Course Outlines Repository (http://www.sfu.ca/outlines.html)
+# Uses this REST API: http://www.sfu.ca/outlines/help/api.html
+#
+# Dependencies: curl, jq, grep, fzf
+set -e
+
+# checks if dependencies are present
+dep_check() {
+    for dep; do
+        command -v "$dep" >/dev/null \
+            || echo "Program \"$dep\" not found. Please install it."
+    done
+}
+
+#######################################
+# Make a GET request and prompt the user to select one from the list
+# Arguments:
+#   url endpoint
+#   params
+# Returns:
+#   the user selection
+#######################################
+request() {
+    curl -s "$1?$2" | jq -r '.[].text' \
+        | fzf  --layout=reverse --cycle --height=50% --prompt="?$2" --select-1 \
+        | tr '[:upper:]' '[:lower:]'
+}
+
+main() {
+    use_cache=false
+    # Parse options
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            -y | --year)    year=$2; shift ;;
+            -t | --term)    term=$2; shift ;;
+            -d | --dept)    dept=$2; shift ;;
+            -n | --number)  cnum=$2; shift ;;
+            -s | --section) sect=$2; shift ;;
+            -c | --cached)  use_cache=true ;;
+            *) echo "Invalid option: -$1"; exit 1 ;;
+        esac
+        shift
+    done
+
+    # check if dependencies are installed
+    dep_check "curl" "jq" "grep" "fzf"
+
+    if $use_cache; then
+        outline_file=$(find './outlines' -type f -name 'outline.json' \
+            | fzf  --layout=reverse --cycle --height=50% --select-1)
+    else
+        # interactively get an outline
+        url='http://www.sfu.ca/bin/wcm/course-outlines'
+        params=""
+        [ -z "$year" ] && year=$(request "$url" "$params")
+        params="$year/"
+        [ -z "$term" ] && term=$(request "$url" "$params")
+        params="$params$term/"
+        [ -z "$dept" ] && dept=$(request "$url" "$params")
+        params="$params$dept/"
+        [ -z "$cnum" ] && cnum=$(request "$url" "$params")
+        params="$params$cnum/"
+        [ -z "$sect" ] && sect=$(request "$url" "$params")
+        params="$params$sect"
+        mkdir -p "./outlines/$params"
+        outline_file="./outlines/$params/outline.json"
+        curl -s "$url?$params" | jq > "$outline_file"
+    fi
+    cat "$outline_file" | jq
+}
+
+main "$@"
