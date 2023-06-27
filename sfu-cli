@@ -3,8 +3,36 @@
 # A CLI for SFU Course Outlines Repository (http://www.sfu.ca/outlines.html)
 # Uses this REST API: http://www.sfu.ca/outlines/help/api.html
 #
-# Dependencies: curl, jq, grep, fzf
+# Dependencies: curl, fzf, jq
 set -e
+
+help() {
+    printf "
+    Usage:
+    %s [options]
+
+    Options:
+        -y, --year
+            Specify the year, or use 'current' or 'registration'
+        -t, --term
+            Specify the term, or use 'current' or 'registration'
+        -d, --dept
+            Specify the department
+        -n, --number
+            Specify the number
+        -s, --section
+            Specify the section
+        -c, --cache
+            Select a previously requested outline
+        -p, --pretty
+            Pretty print outline instead of default behaviour of outputting
+            JSON. Ensure the python virtual environment is setup as shown in
+            the README section titled \"Python Virtual Environment\".
+        -h, --help
+            Show this help message and exit
+    \n" "${0##*/}"
+    exit 0
+}
 
 # checks if dependencies are present
 dep_check() {
@@ -29,7 +57,10 @@ request() {
 }
 
 main() {
+    # init variables
+    cache_dir="./.cache"
     use_cache=false
+    pretty=false
     # Parse options
     while [ $# -gt 0 ]; do
         case "$1" in
@@ -38,18 +69,25 @@ main() {
             -d | --dept)    dept=$2; shift ;;
             -n | --number)  cnum=$2; shift ;;
             -s | --section) sect=$2; shift ;;
-            -c | --cached)  use_cache=true ;;
-            *) echo "Invalid option: -$1"; exit 1 ;;
+            -c | --cache)   use_cache=true ;;
+            -p | --pretty)  pretty=true    ;;
+            -h | --help)    help           ;;
+            *) echo "Invalid option: $1"; exit 1 ;;
         esac
         shift
     done
 
     # check if dependencies are installed
-    dep_check "curl" "jq" "grep" "fzf"
+    dep_check "curl" "jq" "fzf"
 
     if $use_cache; then
-        outline_file=$(find './outlines' -type f -name 'outline.json' \
-            | fzf  --layout=reverse --cycle --height=50% --select-1)
+        if [ -d "$cache_dir" ]; then
+            outline_file=$(find "$cache_dir" -type f -name 'outline.json' \
+                | fzf  --layout=reverse --cycle --height=50% --select-1)
+        else
+            echo "No cached outlines to choose from."
+            exit 1
+        fi
     else
         # interactively get an outline
         url='http://www.sfu.ca/bin/wcm/course-outlines'
@@ -64,11 +102,26 @@ main() {
         params="$params$cnum/"
         [ -z "$sect" ] && sect=$(request "$url" "$params")
         params="$params$sect"
-        mkdir -p "./outlines/$params"
-        outline_file="./outlines/$params/outline.json"
+        # save the outline to a file
+        outline_path=$(curl -s "$url?$params" | jq -r '.info.outlinePath')
+        mkdir -p "$cache_dir/$outline_path"
+        outline_file="$cache_dir/$outline_path/outline.json"
         curl -s "$url?$params" | jq > "$outline_file"
     fi
-    cat "$outline_file" | jq
+    # output the outline
+    if $pretty; then
+        python="./venv/bin/python"
+        if [ -e "$python" ]; then
+            "$python" ./display.py "$outline_file"
+        else
+            echo "ERROR: $python does not exist."
+            echo
+            echo "Ensure the python virtual environment is setup as shown in"
+            echo "the README section titled \"Python Virtual Environment\"."
+        fi
+    else
+        cat "$outline_file" | jq
+    fi
 }
 
 main "$@"

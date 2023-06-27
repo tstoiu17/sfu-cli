@@ -1,98 +1,186 @@
 from rich import print
-from rich import box
 from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
-from rich.style import Style
 from rich.console import Group
-from rich.markdown import Markdown
-from rich.bar import Bar
-import sys
-import json 
+import json
+import argparse
 
-SFU_RED = "#a6192e"
-DEFAULT = "default"
-key_style = Style(color="yellow", bold=True)
-name_style = Style(bold=True)
 
-with open(sys.argv[1]) as f:
-    data = json.load(f)
+def get_data() -> dict:
+    """Read JSON data from argument.
 
-if type(data) == list:
-    print("Not enough data")
-    print(data)
-    exit(1)
-details = dict()
-# details["Instructor"] = data.get("instructor").get("name")
-# COURSE INFO PANEL
-info = data.get("info")
-# link_style = Style(color="#a6192e", bold=True, link=link)
-course_name = Text(f'{info.get("name")} ({info.get("units")})', style=name_style)
-course_title = Markdown(f"## {info.get('title')}")
-info_keys = {
-    "Term": "term",
-    # "Title": "title",
-    "WQB": "designation",
-    "Delivery": "deliveryMethod",
-    "Prereqs": "prerequisites",
-}
-for k, v in info_keys.items():
-    details[k] = info.get(v)
+    Returns:
+        A dict value holding the JSON outline
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('outline_file', help='outline JSON file')
+    args = parser.parse_args()
+    with open(args.outline_file) as f:
+        data: dict = json.load(f)
 
-courseSchedule = data.get("courseSchedule")
-if courseSchedule:
-    campus = courseSchedule[0].get("campus")
-if campus:
-    details["Campus"] = campus
-else:
-    details["Campus"] = "N/A"
+    return data
 
-# INSTRUCTOR PANEL
-table = Table(show_header=False, box=None)
-table.add_column("Key")
-table.add_column("Value")
 
-table.add_row("", "") # padding
-for k,v in details.items():
-    table.add_row(Text(k, style=key_style), Text(v))
+def get_details(outline: dict) -> dict:
+    """Get relevant details from outline.
 
-table.add_row("", "") # padding
+    Extract and format relevant fields from outline in a dict object.
 
-# SCHEDULE
+    Args:
+        outline: course outline as a json object
 
-sched = Table(title="Schedule", title_justify="left", 
-        leading=True)
+    Returns:
+        A dict mapping course details with their values. If a detail was not
+        found in the outline it will be added as a key mapped to a default
+        value.
+    """
+    info: dict           = outline.get("info", dict())
+    instructors: list    = outline.get("instructor", list())
+    courseSchedule: list = outline.get("courseSchedule", list())
+    # get details from info object
+    details = dict()
+    details["name"]         = info.get("name", "")
+    details["units"]        = info.get("units", "")
+    details["title"]        = info.get("title", "")
+    details["term"]         = info.get("term", "")
+    details["desc"]         = info.get("description", "")
+    details["wqb"]          = info.get("designation", "")
+    details["specialTopic"] = info.get("specialTopic", "")
+    if details["wqb"] == "N/A":
+        details["wqb"] = ""
+    details["prerequisites"] = info.get("prerequisites", "")
+    # get instructor(s) from instructors list
+    details["instructor"] = ", ".join(i.get("name", "")
+                                         for i in instructors if "name" in i)
+    details["link"] = f"http://www.sfu.ca/outlines.html?{info.get('outlinePath')}"
+    # get schedule from courseSchedule object
+    details["schedule"] = list()
+    for day in courseSchedule:
+        if daynames := day.get("days", ""):
+            for dayname in daynames.split(","):
+                details["schedule"].append(dict())
+                details["schedule"][-1]["day"] = dayname.strip()
+                details["schedule"][-1]["location"] = \
+                    day.get("buildingCode", "") + day.get("roomNumber", "")
+                details["schedule"][-1]["startTime"] = day.get("startTime", "")
+                details["schedule"][-1]["endTime"] = day.get("endTime", "")
+                details["schedule"][-1]["sectionCode"] = \
+                    day.get("sectionCode", "")
 
-for day in ["Mo", "Tu", "We", "Th", "Fr"]:
-    sched.add_column(day, justify="center", style=f"on {DEFAULT}",
-            max_width=10, min_width=10)
+    return details
 
-sched.add_row(
-    None,
-    Text("10:30\n\n12:20", style=f"on {SFU_RED}"),
-    None,
-    Text("10:30\n11:20", style=f"on {SFU_RED}"),
-    None,
-    # Text("test", style=f"white on {SFU_RED}", justify="left"),
-    # None,
-    # Text("to", style=f"default on default", justify="left"),
-    # Text("test", style=f"white on {SFU_RED}", justify="left"),
-    # None,
-    # Text("test", style=f"white on {SFU_RED}", justify="left"),
-)
 
-link = f"http://www.sfu.ca/outlines.html?{info.get('outlinePath')}"
-# outline_link = Markdown(f"---\n\n[{link}]({link})")
-outline_link = Text(f"{link}", style="blue")
+def get_title_panel(details: dict) -> Panel:
+    """Get a panel containing the title of the course.
 
-group = Group(
-    course_title,
-    table,
-    sched,
-    # outline_link,
-)
+    Displays the title info consistent with the format found in the web view
+    (i.e. http://www.sfu.ca/outlines.html?2023/fall/cmpt/450/d100):
 
-print(Panel(group, title=course_name, title_align="left", expand=False, 
-    subtitle=outline_link, subtitle_align="left", box=box.HEAVY))
-# TODO: check https://excalidraw.com/#json=x9-Ji-YybrRFIHFWa1e6E,hBs8lWHvyEnOGA04GAP2vg
+        <term> - <name>
+        <title> (<units>)
 
+    Args:
+        details: A dict mapping course details with their values.
+
+    Returns:
+        A rich.panel.Panel containing the course title.
+    """
+    lines = [
+        f'{details.get("term", "")} - {details.get("name", "")}',
+        f'{details.get("title", "")} ({details.get("units", "")})',
+    ]
+    if details["specialTopic"]:
+        lines.append(details["specialTopic"])
+    return Panel.fit(
+        "\n".join(lines),
+        style="bold"
+    )
+
+
+def get_week_table(schedule: list) -> Table | None:
+    """Get a week table from courseSchedule list object
+
+    Format courseSchedule as a table representing a week view of the course.
+
+    Args:
+        schedule: courseSchedule list object
+
+    Returns:
+        A dict a table representing a week view of the course. If schedule is
+        an empty list return None.
+    """
+    if not schedule:
+        return None
+
+    week_table = Table()
+    classes = dict()
+
+    # initialize week
+    for day in ["Mo", "Tu", "We", "Th", "Fr"]:
+        week_table.add_column(day, justify="center", min_width=7)
+        classes[day] = None
+
+    # the earliest start time is needed for aligning multiple days according to
+    # their times like a typical week view on a calendar
+    earliest_start = min(int(day['startTime'].split(":")[0]) 
+                         for day in schedule)
+    for day in schedule:
+        start    = f"{day['startTime']}"
+        end      = f"{day['endTime']}"
+        start_hr = int(start.split(":")[0])
+        end_hr   = int(end.split(":")[0])
+        duration = end_hr - start_hr
+        newline  = "\n" # f-strings can't contain backslashes
+        classes[day["day"]] = Group(
+            day["location"],
+            f"{newline * (start_hr - earliest_start)}",
+            Text(f" {start} {newline * duration} {end} ", style="on #a6192e")
+        )
+
+    week_table.add_row(*classes.values())
+
+    return week_table
+
+
+def get_details_table(details: dict) -> Table:
+    """Get a table containing the course details.
+
+    Args:
+        details: A dict mapping course details with their values.
+
+    Returns:
+        A rich.table.Table containing course details.
+    """
+    table = Table(
+        show_header=False,
+        show_lines=True,
+        caption=Text.assemble("Web view: ", (f"{details['link']}", "blue"))
+    )
+
+    table.add_column("Key",   style="bold #a6192e")
+    table.add_column("Value", max_width=70)
+
+    if details["desc"]:
+        table.add_row("Description", details["desc"] + " " + details["wqb"])
+    if details["prerequisites"]:
+        table.add_row("Prerequisites", details["prerequisites"])
+    if details["instructor"]:
+        table.add_row("Instructor", details["instructor"])
+    if details["schedule"]:
+        table.add_row("Schedule", get_week_table(details["schedule"]))
+
+    return table
+
+
+def main():
+    data          = get_data()
+    details       = get_details(data)
+    title_panel   = get_title_panel(details)
+    details_table = get_details_table(details)
+
+    print(Panel.fit(Group(title_panel, details_table)))
+
+
+if __name__ == '__main__':
+    main()

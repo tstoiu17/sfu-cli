@@ -1,3 +1,59 @@
 # SFU Outlines CLI
 
-A CLI for the [SFU Outlines REST API](http://www.sfu.ca/outlines/help/api.html)
+
+
+`sfu-cli` lets you fuzzily interact with the [SFU Outlines REST
+API](http://www.sfu.ca/outlines/help/api.html) to retrieve a course outline in
+JSON.
+
+`display.py` is a helper that displays the course outline in your terminal with
+[rich](https://github.com/Textualize/rich) formatted text.
+
+## Setup
+
+### `sfu-cli` 
+
+- Dependencies
+    - curl
+    - [fzf](https://github.com/junegunn/fzf)
+    - [jq](https://jqlang.github.io/jq/)
+
+### `display.py`
+
+- Dependencies
+    - See [`requirements.txt`](./requirements.txt)
+
+#### Python Virtual Environment
+
+```
+python -m venv venv                            # create a virtual environment
+./venv/bin/pip install -r requirements.txt     # install the dependencies
+```
+
+## Usage
+
+### `sfu-cli`
+
+```
+./sfu-cli --help
+```
+
+#### Output
+
+The requested outline will be printed as output after the course section is
+selected, as well as saved in the `./outlines/` directory using the following 
+structure (same as API structure):
+
+```
+./outlines/<year>/<term>/<dept>/<num>/<section>/outline.json
+```
+
+### `display.py`
+
+```
+./venv/bin/python display.py [JSON_OUTLINE_FILE]
+```
+
+This can be called directly by `sfu-cli` with the `-p, --pretty` flag (the
+python virtual environment must be setup exactly as shown in [`display.py`
+setup](#displaypy)).
