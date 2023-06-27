@@ -54,11 +54,11 @@ python -m venv venv
 #### Output
 
 The requested outline will be printed as output after the course section is
-selected, as well as saved in the `./outlines/` directory using the following 
+selected, as well as saved in the `./.cache/` directory using the following 
 structure (same as API structure):
 
 ```
-./outlines/<year>/<term>/<dept>/<num>/<section>/outline.json
+./.cache/<year>/<term>/<dept>/<num>/<section>/outline.json
 ```
 
 ### `display.py`
