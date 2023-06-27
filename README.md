@@ -55,5 +55,5 @@ structure (same as API structure):
 ```
 
 This can be called directly by `sfu-cli` with the `-p, --pretty` flag (the
-python virtual environment must be setup exactly as shown in [`display.py`
-setup](#displaypy)).
+python virtual environment must be setup exactly as shown
+[above](#python-virtual-environment)).
