@@ -1,13 +1,26 @@
 # SFU Outlines CLI
 
-
-
 `sfu-cli` lets you fuzzily interact with the [SFU Outlines REST
 API](http://www.sfu.ca/outlines/help/api.html) to retrieve a course outline in
 JSON.
 
 `display.py` is a helper that displays the course outline in your terminal with
 [rich](https://github.com/Textualize/rich) formatted text.
+
+## Table of Contents
+
+<!--toc:start-->
+- [SFU Outlines CLI](#sfu-outlines-cli)
+  - [Table of Contents](#table-of-contents)
+  - [Setup](#setup)
+    - [`sfu-cli`](#sfu-cli)
+    - [`display.py`](#displaypy)
+      - [Python Virtual Environment](#python-virtual-environment)
+  - [Usage](#usage)
+    - [`sfu-cli`](#sfu-cli)
+      - [Output](#output)
+    - [`display.py`](#displaypy)
+<!--toc:end-->
 
 ## Setup
 
