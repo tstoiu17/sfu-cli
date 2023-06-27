@@ -39,8 +39,8 @@ JSON.
 #### Python Virtual Environment
 
 ```
-python -m venv venv                            # create a virtual environment
-./venv/bin/pip install -r requirements.txt     # install the dependencies
+python -m venv venv
+./venv/bin/pip install -r requirements.txt
 ```
 
 ## Usage
